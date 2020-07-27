@@ -45,11 +45,13 @@ class ViewController: UIViewController {
         
             nextViewController.big = imageView.image
         
+        if timer != nil{
         timer.invalidate()
         timer = nil
         buttonChenge.setTitle("再生", for: .normal)
         nextView.isEnabled = true
         backView.isEnabled = true
+        }
                
            }
     
