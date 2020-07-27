@@ -68,7 +68,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="backView" destination="O8h-Pf-NAS" id="ksd-Tf-tcA"/>
+                        <outlet property="buttonChenge" destination="aE3-qb-OME" id="IsS-oc-CFQ"/>
                         <outlet property="imageView" destination="hwI-vf-5dh" id="Kd6-hd-WV5"/>
+                        <outlet property="nextView" destination="q3k-t7-fx1" id="G3u-KW-spv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

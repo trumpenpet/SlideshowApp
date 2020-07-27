@@ -10,11 +10,16 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var buttonChenge: UIButton!
+    
+    @IBOutlet weak var nextView: UIButton!
+    
     var timer:Timer! = nil
     
     var timer_sec:Float = 0
     
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var backView: UIButton!
     
     let image1:UIImage = UIImage(named:"foods/IMG_6976.jpeg")!
     let image2:UIImage = UIImage(named: "foods/IMG_8882.jpeg")!
@@ -26,7 +31,9 @@ class ViewController: UIViewController {
     
         imageView.image = image1
         
-    }
+        buttonChenge.setTitle("再生", for: .normal)
+    
+        }
     
     @IBAction func tapAction(_ sender: Any) {
         
@@ -37,6 +44,12 @@ class ViewController: UIViewController {
             let nextViewController: NextViewController = segue.destination as! NextViewController
         
             nextViewController.big = imageView.image
+        
+        timer.invalidate()
+        timer = nil
+        buttonChenge.setTitle("再生", for: .normal)
+        nextView.isEnabled = true
+        backView.isEnabled = true
                
            }
     
@@ -53,6 +66,7 @@ class ViewController: UIViewController {
         } else if imageView.image == image3 {
             imageView.image = image1
         }
+        
     }
     
     @IBAction func backBotton(_ sender: Any) {
@@ -70,11 +84,20 @@ class ViewController: UIViewController {
     @IBAction func outoBotton(_ sender: Any) {
         
         if timer == nil {
+            
             self.timer = Timer.scheduledTimer(timeInterval: 2.0,target: self,selector: #selector(updateTimer(_:)), userInfo: nil,repeats: true)
+            buttonChenge.setTitle("停止", for: .normal)
+            
+            nextView.isEnabled = false
+            backView.isEnabled = false
+            
         } else if timer != nil {
             
             timer.invalidate()
             timer = nil
+            buttonChenge.setTitle("再生", for: .normal)
+            nextView.isEnabled = true
+            backView.isEnabled = true
             
         }
         
